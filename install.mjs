@@ -3,9 +3,14 @@
 import Components from "./components.mjs";
 import Platforms from "./platforms.mjs";
 
+function exit(msg) {
+  console.error(chalk.red(msg));
+  process.exit(1);
+}
+
 const { p: platform } = argv;
 if (!platform || !(platform in Platforms))
-  throw new Error(
+  exit(
     "A valid platform should be provided. Options: " +
       Object.keys(Platforms).join(", ")
   );
@@ -14,7 +19,7 @@ const targets = Platforms[platform];
 
 for (const target of targets) {
   if (!(target in Components)) {
-    throw new Error("Unknown target found in preconfigured platform presets!");
+    exit("Unknown target found in preconfigured platform presets!");
   }
 }
 
