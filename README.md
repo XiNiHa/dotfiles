@@ -2,11 +2,20 @@
 
 개인 셸 설정 파일 모음입니다. 뭐가 없습니다.
 
+## 요구사항
+
+- [zx](https://github.com/google/zx)
+
 ## 설치
 
 ```sh
-./install.sh
+./install.mjs -p macos # linux, ...
 ```
+
+## 지원 플랫폼
+
+- Mac (`macos`)
+- Linux (`linux`)
 
 ## 구성요소
 
