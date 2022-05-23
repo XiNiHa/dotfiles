@@ -25,7 +25,8 @@ for (const target of targets) {
 
 const resolved = targets
   .map((target) => Components[target])
-  .map(([from, dir, to]) => [
+  .flat()
+  .map(({ from, dir, to }) => [
     from,
     dir[0] === "~" ? path.join(os.homedir(), dir.slice(1)) : dir,
     to,

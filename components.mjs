@@ -1,11 +1,19 @@
+function entry(from, dir, to) {
+  return { from, dir, to }
+}
+
 export default {
-  alacritty: ['./alacritty.yml', '~/.config/alacritty', 'alacritty.yml'],
-  bg: ['./images/bg.jpg', '~/.local/share/backgrounds', 'bg.jpg'],
-  kime: ['./kime.yaml', '~/.config/kime', 'config.yaml'],
-  skhd: ['./.skhdrc', '~/', '.skhdrc'],
-  starship: ['./starship.toml', '~/.config', 'starship.toml'],
-  sway: ['./sway', '~/.config/sway', 'config'],
-  swaylock: ['./swaylock', '~/.config/swaylock', 'config'],
-  yabai: ['./.yabairc', '~/', '.yabairc'],
-  zsh: ['./.zshrc-middle.sh', '~/', '.zshrc-middle.sh'],
+  alacritty: entry('./alacritty.yml', '~/.config/alacritty', 'alacritty.yml'),
+  bg: entry('./images/bg.jpg', '~/.local/share/backgrounds', 'bg.jpg'),
+  kime: entry('./kime.yaml', '~/.config/kime', 'config.yaml'),
+  sirula: [
+    entry('./sirula.toml', '~/.config/sirula', 'config.toml'),
+    entry('./sirula.css', '~/.config/sirula', 'style.css'),
+  ],
+  skhd: entry('./.skhdrc', '~/', '.skhdrc'),
+  starship: entry('./starship.toml', '~/.config', 'starship.toml'),
+  sway: entry('./sway', '~/.config/sway', 'config'),
+  swaylock: entry('./swaylock', '~/.config/swaylock', 'config'),
+  yabai: entry('./.yabairc', '~/', '.yabairc'),
+  zsh: entry('./.zshrc-middle.sh', '~/', '.zshrc-middle.sh'),
 }
