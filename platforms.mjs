@@ -1,4 +1,4 @@
 export default {
-  macos: ['zsh', 'starship', 'yabai', 'skhd'],
-  linux: ['zsh', 'starship', 'kime'],
+  macos: ['alacritty', 'skhd', 'starship', 'yabai', 'zsh'],
+  linux: ['alacritty', 'kime', 'starship', 'zsh'],
 }

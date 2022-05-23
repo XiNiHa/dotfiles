@@ -1,7 +1,8 @@
 export default {
-  starship: ['./starship.toml', '~/.config', 'starship.toml'],
-  zsh: ['./.zshrc-middle.sh', '~/', '.zshrc-middle.sh'],
+  alacritty: ['./alacritty.yml', '~/.config/alacritty', 'alacritty.yml'],
   kime: ['./kime.yaml', '~/.config/kime', 'config.yaml'],
-  yabai: ['./.yabairc', '~/', '.yabairc'],
   skhd: ['./.skhdrc', '~/', '.skhdrc'],
+  starship: ['./starship.toml', '~/.config', 'starship.toml'],
+  yabai: ['./.yabairc', '~/', '.yabairc'],
+  zsh: ['./.zshrc-middle.sh', '~/', '.zshrc-middle.sh'],
 }
