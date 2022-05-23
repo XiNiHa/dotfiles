@@ -18,14 +18,25 @@ for (const target of targets) {
   }
 }
 
-await Promise.all(
-  targets.map(async (target) => {
-    const [from, dir, to] = Components[target];
-    const resolvedDir = dir[0] === '~' ? path.join(os.homedir(), dir.slice(1)) : dir
+const resolved = targets
+  .map((target) => Components[target])
+  .map(([from, dir, to]) => [
+    from,
+    dir[0] === "~" ? path.join(os.homedir(), dir.slice(1)) : dir,
+    to,
+  ]);
 
-    await $`mkdir -p ${resolvedDir}`;
-    await $`cp ${from} ${path.join(resolvedDir, to)}`;
+await Promise.all(
+  Array.from(new Set(resolved.map(([, dir]) => dir)).values()).map(
+    (dir) => $`mkdir -p ${dir}`
+  )
+);
+
+await Promise.all(
+  resolved.map(async (component) => {
+    const [from, dir, to] = component;
+    await $`cp ${from} ${path.join(dir, to)}`;
   })
 );
 
-console.log(chalk.green('Installation done!'))
+console.log(chalk.green("Installation done!"));
