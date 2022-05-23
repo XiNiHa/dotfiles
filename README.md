@@ -25,3 +25,5 @@
 - [Starship](https://starship.rs/): [`starship.toml`](./starship.toml)
   - 원래 powerlevel10k를 쓰고 싶었는데 Mac의 Warp가 p10k를 지원 안 한다 그래서 이걸 쓰고 있습니다.
 - [Kime](https://github.com/Riey/kime): [`kime.yaml`](./kime.yaml)
+- [yabai](https://github.com/koekeishiya/yabai): [`.yabairc`](./.yabairc)
+- [skhd](https://github.com/koekeishiya/skhd): [`.skhdrc`](./.skhdrc)
