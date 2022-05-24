@@ -8,3 +8,7 @@ cursor:
     shape: Beam
     blinking: On
   blink_interval: 500
+
+key_bindings:
+  - { key: Left, mods: Super, chars: "\x01" }
+  - { key: Right, mods: Super, chars: "\x05" }
