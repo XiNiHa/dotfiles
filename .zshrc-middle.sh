@@ -1,3 +1,4 @@
+
 zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
@@ -11,12 +12,20 @@ zinit for \
   from"gh-r" nocompile sbin src"init.zsh" \
   starship/starship
 
+zinit ice silent wait'1'
+zinit light zsh-users/zsh-history-substring-search
+
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 zinit ice silent wait'1' atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-autosuggestions
+
+zinit ice silent wait'1'
 zinit light zdharma-continuum/fast-syntax-highlighting
+
+zinit ice silent wait'1'
 zinit light zdharma-continuum/history-search-multi-word
+
+zinit ice silent wait'1'
 zinit light zsh-users/zsh-completions
 
 bindkey '^[[A' history-substring-search-up
