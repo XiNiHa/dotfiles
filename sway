@@ -58,6 +58,11 @@ input "type:keyboard" {
     xkb_variant "colemak"
 }
 
+input "type:pointer" {
+    accel_profile "flat"
+    pointer_accel -0.15
+}
+
 ### Key bindings
 #
 # Basics:
