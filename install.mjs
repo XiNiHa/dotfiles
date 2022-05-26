@@ -8,7 +8,7 @@ function exit(msg) {
   process.exit(1);
 }
 
-const { p: platform } = argv;
+const { p: platform, h: home } = argv;
 if (!platform || !(platform in Platforms))
   exit(
     "A valid platform should be provided. Options: " +
@@ -28,7 +28,7 @@ const resolved = targets
   .flat()
   .map(({ from, dir, to }) => [
     from,
-    dir[0] === "~" ? path.join(os.homedir(), dir.slice(1)) : dir,
+    dir[0] === "~" ? path.posix.join(home || os.homedir(), dir.slice(1)) : dir,
     to,
   ]);
 
