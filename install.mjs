@@ -41,7 +41,7 @@ await Promise.all(
 await Promise.all(
   resolved.map(async (component) => {
     const [from, dir, to] = component;
-    await $`cp ${from} ${path.join(dir, to)}`;
+    await $`cp ${from} ${path.posix.join(dir, to)}`;
   })
 );
 
