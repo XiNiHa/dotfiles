@@ -1,0 +1,9 @@
+#!/usr/bin/env nu
+
+def spaces [] {
+	let workspaces = hyprctl workspaces -j | from json
+	$workspaces | get id | into int | sort | to json --raw | print
+}
+
+spaces
+socat -u $'unix-connect:/tmp/hypr/($env.HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock' - | each { spaces } | ignore

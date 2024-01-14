@@ -1,0 +1,38 @@
+#!/usr/bin/env nu
+
+let icon_dir = $env.HOME + "/.config/mako/icons"
+
+# Get brightness
+def get_backlight [] {
+	let current = brightnessctl g | into int
+	let max = brightnessctl m | into int
+	($current / $max) * 100 | into int
+}
+
+# Notify
+def notify_user [] {
+	notify-send -h string:x-canonical-private-synchronous:sys-notify -i $'($env.HOME)/.config/dunst/icons/brightness.png' $'Brightness : (get_backlight)%'
+}
+
+# Increase brightness
+def inc_backlight [] {
+	brightnessctl s '+10%'
+	notify_user
+}
+
+# Decrease brightness
+def dec_backlight [] {
+	brightnessctl s '10%-'
+	notify_user
+}
+
+# Execute accordingly
+def main [--get, --inc, --dec] {
+	if $inc {
+		inc_backlight
+	} else if $dec {
+		dec_backlight
+	} else {
+		get_backlight
+	}
+}

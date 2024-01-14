@@ -1,0 +1,78 @@
+#!/usr/bin/env nu
+
+let icon_dir = $env.HOME + '/.config/dunst/icons'
+
+# Get Volume
+def get_volume [] {
+	pamixer --get-volume | into int
+}
+
+# Get icons
+def get_icon [] {
+	let current = get_volume
+
+	if $current == 0 {
+		$icon_dir + "/volume-mute.png"
+	} else if $current <= 30 {
+		$icon_dir + "/volume-low.png"
+	} else if $current <= 60 {
+		$icon_dir + "/volume-mid.png"
+	} else {
+		$icon_dir + "/volume-high.png"
+	}
+}
+
+# Notify
+def notify_user [] {
+	notify-send -h string:x-canonical-private-synchronous:sys-notify -i (get_icon) $'Volume : (get_volume) %'
+}
+
+# Increase Volume
+def inc_volume [] {
+	if (get_muted) {
+		pamixer -u
+	}
+	pamixer -i 5
+	notify_user
+}
+
+# Decrease Volume
+def dec_volume [] {
+	if (get_muted) {
+		pamixer -u
+	}
+	pamixer -d 5
+	notify_user
+}
+
+def get_muted [] {
+	pamixer --get-mute | into bool
+}
+
+# Toggle Mute
+def toggle_mute [] {
+	if (get_muted) {
+		pamixer -u
+		notify-send -h string:x-canonical-private-synchronous:sys-notify -i (get_icon) "Volume Switched ON"
+	} else {
+		pamixer -m
+		notify-send -h string:x-canonical-private-synchronous:sys-notify -i $'($icon_dir)/volume-mute.png' "Volume Switched OFF"
+	}
+}
+
+# Execute accordingly
+def main [--get, --inc, --dec, --toggle, --get-icon] {
+	if $get {
+		get_volume
+	} else if $inc {
+		inc_volume
+	} else if $dec {
+		dec_volume
+	} else if $toggle {
+		toggle_mute
+	} else if $get_icon {
+		get_icon
+	} else {
+		get_volume
+	}
+}

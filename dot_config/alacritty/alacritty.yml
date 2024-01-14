@@ -1,0 +1,17 @@
+shell:
+  program: /usr/bin/nu
+
+font:
+  size: 10
+  normal:
+    family: "Hack Nerd Font Mono"
+
+cursor:
+  style:
+    shape: Beam
+    blinking: On
+  blink_interval: 500
+
+key_bindings:
+  - { key: Left, mods: Super, chars: "\x01" }
+  - { key: Right, mods: Super, chars: "\x05" }

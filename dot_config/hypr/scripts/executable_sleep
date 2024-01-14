@@ -1,0 +1,6 @@
+#!/usr/bin/env nu
+
+(
+  swayidle -w timeout 60 'hyprctl dispatch dpms off'
+              resume 'hyprctl dispatch dpms on'
+)

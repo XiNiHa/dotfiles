@@ -1,0 +1,25 @@
+[cursor]
+blink_interval = 500
+
+[cursor.style]
+blinking = "On"
+shape = "Beam"
+
+[font]
+size = 10
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+
+[[keyboard.bindings]]
+chars = "\u0001"
+key = "Left"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u0005"
+key = "Right"
+mods = "Super"
+
+[shell]
+program = "/usr/bin/nu"

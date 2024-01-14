@@ -1,0 +1,85 @@
+(defwidget bar []
+  (box :class "bar-inner"
+    (centerbox :orientation "h"
+      (workspaces)
+      (music)
+      (sidestuff)))
+)
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :spacing 12
+    (metric :label {volume == -1 ? "󰖁" : "󰖀"}
+      :value volume
+      :display "${volume == -1 ? 0 : volume}%"
+      :onclick "pavucontrol &"
+    :onchange "")
+    (metric :label "󰍛"
+      :value {EWW_RAM.used_mem_perc}
+      :display "${round(EWW_RAM.used_mem_perc, 0)}%"
+    :onchange "")
+    (metric :label {battery_status == "Discharging" ? "󰁾" : "󰂄"}
+      :value battery_percentage
+      :display "${battery_percentage}%"
+    :onchange "")
+    time
+    (button :onclick "systemctl poweroff" "󰐥")
+  ))
+
+(deflisten workspaces :initial "[]" "scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "scripts/get-active-workspace")
+(defwidget workspaces []
+  (eventbox :onscroll "scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box :space-evenly false :halign "start"
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace}"
+          (box :class "workspace-entry ${workspace == current_workspace ? "current" : ""}"
+            (label :text "${workspace}")
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget music []
+  (box :class "music"
+    :orientation "h"
+    :space-evenly false
+    :halign "center"
+  {music != "" ? "🎵${music}" : ""}))
+
+(defwidget metric [label value display onchange ?onclick]
+  (box :orientation "h"
+    :class "metric"
+    :space-evenly false
+    (eventbox :onclick onclick (box :class "label" label))
+    (scale :min 0
+      :max 101
+      :active {onchange != ""}
+      :value value
+    :onchange onchange)
+    (box display)))
+
+(deflisten music :initial ""
+"playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(deflisten volume "scripts/get-vol")
+
+(defpoll battery_status :interval "1s"
+"/usr/bin/cat /sys/class/power_supply/BAT1/status")
+
+(defpoll battery_percentage :interval "10s"
+"/usr/bin/cat /sys/class/power_supply/BAT1/capacity")
+
+(defpoll time :interval "10s"
+"date '+%H:%M %b %d, %Y'")
+
+(defwindow bar
+  :exclusive true
+  :stacking "fg"
+  :geometry (geometry :x "0%"
+    :y "0%"
+    :width "90%"
+    :height "10px"
+  :anchor "top center")
+  (bar))

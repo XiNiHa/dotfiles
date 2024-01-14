@@ -1,0 +1,25 @@
+#!/usr/bin/env nu
+
+(
+  hyprctl monitors -j
+  | from json
+  | filter {|x| $x.focused}
+  | first
+  | get activeWorkspace
+  | get id
+  | print
+)
+
+def print_workspace [] {
+  each {|s| (
+    $s | lines | each {|l| (
+      $l
+      | parse --regex '^workspace>>(?P<workspace>\d+)$'
+      | first
+      | get workspace
+      | if $in != null { print $in }
+    )}
+  )} | ignore
+}
+
+socat -u $'unix-connect:/tmp/hypr/($env.HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock' - | print_workspace

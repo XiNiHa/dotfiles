@@ -1,0 +1,19 @@
+#! /usr/bin/env nu
+
+def clamp [min: int, max: int, val: int] {
+	[([$val, $max] | math min) $min] | math max
+}
+
+def main [direction, current] {
+	let target = if $direction == "down" {
+		clamp 1 10 ($current + 1)
+	} else if $direction == "up" {
+		clamp 1 10 ($current - 1)
+	} else {
+		null
+	}
+	if target != null {
+		print $"jumping to ($target)"
+		hyprctl dispatch workspace $target
+	}
+}

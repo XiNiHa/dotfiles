@@ -1,0 +1,18 @@
+#!/usr/bin/env nu
+
+def get_vol [] {
+  let muted = pamixer --get-mute | into bool
+  if $muted {
+    -1
+  } else {
+    pamixer --get-volume | into int
+  }
+}
+
+get_vol | print
+
+pactl subscribe
+  | lines
+  | filter { str contains "sink" }
+  | each { get_vol | print }
+  | ignore
