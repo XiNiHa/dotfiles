@@ -20,7 +20,8 @@
     (metric :label {battery_status == "Discharging" ? "󰁾" : "󰂄"}
       :value battery_percentage
       :display "${battery_percentage}%"
-    :onchange "")
+      :visible {battery_percentage != ""}
+      :onchange "")
     time
     (button :onclick "systemctl poweroff" "󰐥")
   ))
@@ -48,10 +49,11 @@
     :halign "center"
   {music != "" ? "🎵${music}" : ""}))
 
-(defwidget metric [label value display onchange ?onclick]
+(defwidget metric [label value display onchange ?visible ?onclick]
   (box :orientation "h"
     :class "metric"
     :space-evenly false
+    :visible {visible}
     (eventbox :onclick onclick (box :class "label" label))
     (scale :min 0
       :max 101
