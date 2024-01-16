@@ -1,6 +1,13 @@
 #!/usr/bin/env nu
 
+let hostname = open /etc/hostname
+let timeout = if hostname =~ "PC" {
+  300
+} else {
+  60
+}
+
 (
-  swayidle -w timeout 60 'hyprctl dispatch dpms off'
+  swayidle -w timeout $timeout 'hyprctl dispatch dpms off'
               resume 'hyprctl dispatch dpms on'
 )
