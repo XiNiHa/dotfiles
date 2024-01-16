@@ -13,11 +13,11 @@ if ((pidof 'eww') == '') {
 
 ## Open widgets
 def run_eww [] {
-	## Open bar on DP-1 if available, otherwise on first screen
+	## Open bar on DP-* if available, otherwise on first screen
 	let monitors = hyprctl monitors -j | from json
-	let dp1 = $monitors | filter { $in.name == 'DP-1' } | $in.0?
-	let screen = if $dp1 != null {
-		$dp1.id
+	let dp = $monitors | filter { $in.name =~ '^DP-' } | $in.0?
+	let screen = if $dp != null {
+		$dp.id
 	} else {
 		$monitors | first | $in.id
 	}
