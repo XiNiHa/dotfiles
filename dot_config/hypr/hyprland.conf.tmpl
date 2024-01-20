@@ -12,14 +12,17 @@ exec-once = eww daemon
 exec-once = ~/.config/eww/launch_bar
 exec-once = stalonetray
 exec-once = /usr/lib/polkit-kde-authentication-agent-1
-exec-once = kime
-exec-once = kime-wayland
+exec-once = fcitx5
 exec-once = dunst
 
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 env = XCURSOR_SIZE,24
 env = QT_STYLE_OVERRIDE,breeze
+
+env = GTK_IM_MODULE,fcitx
+env = QT_IM_MODULE,fcitx
+env = XMODIFIERS,@im=fcitx
 
 {{ if eq .chezmoi.hostname "XiNiHa-Arch-PC" }}
 env = LIBVA_DRIVER_NAME,nvidia
