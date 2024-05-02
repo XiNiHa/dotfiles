@@ -180,3 +180,5 @@ source /opt/asdf-vm/asdf.nu
 
 alias cat = bat
 alias arst = asdf
+
+source ~/.zoxide.nu
