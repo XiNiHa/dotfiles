@@ -20,7 +20,7 @@ exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRE
 env = XCURSOR_SIZE,24
 env = QT_STYLE_OVERRIDE,breeze
 
-env = GTK_IM_MODULE,fcitx
+# env = GTK_IM_MODULE,fcitx
 env = QT_IM_MODULE,fcitx
 env = XMODIFIERS,@im=fcitx
 
@@ -126,6 +126,8 @@ windowrulev2 = idleinhibit focus,title:.* - YouTube — Mozilla Firefox$
 windowrulev2 = opacity 0, title:^KakaoTalk.*Wnd$
 windowrulev2 = minsize 0 0, title:^KakaoTalk.*Wnd$
 windowrulev2 = maxsize 0 0, title:^KakaoTalk.*Wnd$
+
+windowrulev2 = tile, class:^dev\.warp\.Warp$
 
 $mainMod = SUPER
 
