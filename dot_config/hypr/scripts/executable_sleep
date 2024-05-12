@@ -10,4 +10,5 @@ let timeout = if $hostname =~ "PC" {
 (
   swayidle -w timeout $timeout 'hyprctl dispatch dpms off'
               resume 'hyprctl dispatch dpms on'
+              timeout ($timeout * 2) 'systemctl suspend'
 )
