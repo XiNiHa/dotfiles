@@ -1,6 +1,0 @@
-# >>> coursier install directory >>>
-export PATH="$PATH:/home/xiniha/.local/share/coursier/bin"
-# <<< coursier install directory <<<
-
-ASDF_DIR="/opt/asdf-vm"
-. /opt/asdf-vm/asdf.sh
