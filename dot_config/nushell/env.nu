@@ -42,6 +42,7 @@ $env.PATH = (
     ]
     | append [
         '/home/xiniha/.cargo/bin',
+        '/home/xiniha/.local/bin',
         '/home/xiniha/.local/share/bin',
         "/opt/android-sdk/platform-tools"
     ]
