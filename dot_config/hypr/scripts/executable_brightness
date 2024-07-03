@@ -16,13 +16,13 @@ def notify_user [] {
 
 # Increase brightness
 def inc_backlight [] {
-	brightnessctl s '+10%'
+	brightnessctl s '+5%'
 	notify_user
 }
 
 # Decrease brightness
 def dec_backlight [] {
-	brightnessctl s '10%-'
+	brightnessctl s '5%-'
 	notify_user
 }
 
