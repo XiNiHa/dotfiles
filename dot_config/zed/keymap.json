@@ -1,0 +1,34 @@
+[
+	{
+		"context": "Editor && VimControl && !VimWaiting && !menu",
+		"bindings": {
+			"h": "vim::Left",
+			"n": "vim::Down",
+			"e": "vim::Up",
+			"i": "vim::Right",
+			"j": "vim::MoveToNextMatch",
+			"k": "vim::NextWordEnd",
+			"l": ["vim::PushOperator", { "Object": { "around": false } }]
+		}
+	},
+	{
+		"context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+		"bindings": {
+			"l": "vim::InsertBefore"
+		}
+	},
+	{
+		"context": "ProjectPanel && not_editing",
+		"bindings": {
+			"n": "menu::SelectNext",
+			"e": "menu::SelectPrev"
+		}
+	},
+	{
+		"context": "OutlinePanel",
+		"bindings": {
+			"n": "menu::SelectNext",
+			"e": "menu::SelectPrev"
+		}
+	}
+]
