@@ -47,6 +47,7 @@ $env.PATH = (
         "/opt/android-sdk/platform-tools"
     ]
 )
-$env.EDITOR = 'code -w'
+$env.EDITOR = 'zeditor -w'
+$env.ANDROID_SDK_ROOT = '/home/xiniha/Android/Sdk'
 
 zoxide init nushell | save -f ~/.zoxide.nu
