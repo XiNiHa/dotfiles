@@ -4,7 +4,7 @@ let hostname = open /etc/hostname
 let timeout = if $hostname =~ "PC" {
   300
 } else {
-  60
+  120
 }
 
 (
