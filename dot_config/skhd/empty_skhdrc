@@ -20,3 +20,5 @@ alt + shift - 7 : yabai -m window --space 7 --focus
 alt + shift - 8 : yabai -m window --space 8 --focus
 alt + shift - 9 : yabai -m window --space 9 --focus
 alt + shift - 0 : yabai -m window --space 10 --focus
+
+cmd - return : alacritty
