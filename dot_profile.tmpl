@@ -24,6 +24,8 @@ export WLR_NO_HARDWARE_CURSORS=1
 
 {{ if eq .chezmoi.os "darwin" }}
 export EDITOR="/Applications/Zed\ Preview.app/Contents/MacOS/cli -w"
-{{ end }}
-
+export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+{{ else }}
+export EDITOR="zeditor -w"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+{{ end }}
