@@ -4,8 +4,13 @@ export PATH="$PATH:$HOME/.local/share/coursier/bin"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
+{{ if eq .chezmoi.os "darwin" }}
+export ASDF_DIR="/opt/homebrew/opt/asdf/libexec"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+{{ else }}
 export ASDF_DIR="/opt/asdf-vm"
 . /opt/asdf-vm/asdf.sh
+{{ end }}
 
 export XCURSOR_SIZE=24
 export QT_STYLE_OVERRIDE=breeze
