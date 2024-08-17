@@ -15,7 +15,7 @@ if ((pidof 'eww') == '') {
 def run_eww [] {
 	## Open bar on DP-* if available, otherwise on first screen
 	let monitors = hyprctl monitors -j | from json
-	let dp = $monitors | filter { $in.name =~ '^DP-' } | $in.0?
+	let dp = $monitors | filter { $in.name =~ '^(?:DP)|(?:HDMI)-' } | $in.0?
 	let screen = if $dp != null {
 		$dp.id
 	} else {
