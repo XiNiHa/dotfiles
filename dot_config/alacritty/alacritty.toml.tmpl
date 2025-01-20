@@ -26,7 +26,8 @@ chars = "\u0005"
 key = "Right"
 mods = "Super"
 
-[shell]
+[terminal]
+[terminal.shell]
 {{ if eq .chezmoi.os "darwin" }}
 program = "/opt/homebrew/bin/nu"
 {{ else }}
