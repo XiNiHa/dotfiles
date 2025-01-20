@@ -7,37 +7,121 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "One Dark"
-  },
-  "vim_mode": true,
-  "cursor_blink": false,
-  "ui_font_size": 16,
-  "ui_font_family": "Pretendard",
-  "buffer_font_size": 16,
-  "buffer_font_family": "NeoDunggeunmo Code",
-  "relative_line_numbers": true,
-  "format_on_save": "off",
-  "soft_wrap": "none",
-  "hard_tabs": true,
-  "tab_size": 2,
-  "features": {
-    "inline_completion_provider": "supermaven"
-  },
-  "inlay_hints": {
-    "enabled": true
-  },
-  "tabs": {
-    "git_status": true
-  },
-  "terminal": {
-    "shell": {
-      "program": "nu"
-    },
-    "font_family": "Hack Nerd Font Mono",
-    "font_size": 14
-  },
-  "language_servers": ["!biome", "..."]
+	"theme": {
+		"mode": "dark",
+		"light": "One Light",
+		"dark": "One Dark"
+	},
+	"vim_mode": true,
+	"cursor_blink": false,
+	"ui_font_size": 16,
+	"ui_font_family": "Pretendard",
+	"buffer_font_size": 16,
+	"buffer_font_family": "Hack Nerd Font Mono",
+	"buffer_font_features": {
+		"liga": false,
+		"calt": false
+	},
+	"relative_line_numbers": true,
+	"format_on_save": "off",
+	"soft_wrap": "none",
+	"hard_tabs": true,
+	"tab_size": 2,
+	"features": {
+		"inline_completion_provider": "supermaven"
+	},
+	"inlay_hints": {
+		"enabled": true
+	},
+	"tabs": {
+		"git_status": true
+	},
+	"terminal": {
+		"shell": {
+			"program": "nu"
+		},
+		"font_family": "Hack Nerd Font Mono",
+		"font_size": 14
+	},
+	"lsp": {
+		"vtsls": {
+			"settings": {
+				"typescript": {
+					"inlayHints": {
+						"parameterNames": {
+							"enabled": "all",
+							"suppressWhenArgumentMatchesName": true
+						},
+						"variableTypes": {
+							"enabled": false
+						},
+						"enumMemberValues": {
+							"enabled": false
+						}
+					}
+				},
+				"javascript": {
+					"inlayHints": {
+						"parameterNames": {
+							"enabled": "all",
+							"suppressWhenArgumentMatchesName": true
+						},
+						"variableTypes": {
+							"enabled": false
+						},
+						"enumMemberValues": {
+							"enabled": false
+						}
+					}
+				},
+				"vtsls": {
+					"autoUseWorkspaceTsdk": true
+				}
+			}
+		},
+		"biome": {
+			"settings": {
+				"require_config_file": true
+			}
+		},
+		"rust-analyzer": {
+			"binary": {
+				"path": "/opt/homebrew/bin/ra-multiplex"
+			},
+			"initialization_options": {
+				"checkOnSave": {
+					"command": "clippy"
+				},
+				"cargo": {
+					"features": "all"
+				}
+			}
+		}
+	},
+	"languages": {
+		"Plain Text": {
+			"show_inline_completions": false
+		},
+		"Markdown": {
+			"show_inline_completions": false
+		},
+		"Rust": {
+			"hard_tabs": false,
+			"tab_size": 4
+		},
+		"TypeScript": {
+			"formatter": {
+				"language_server": {
+					"name": "biome"
+				}
+			}
+		},
+		"TSX": {
+			"formatter": {
+				"language_server": {
+					"name": "biome"
+				}
+			}
+		}
+	}
 }
