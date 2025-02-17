@@ -8,7 +8,7 @@
 			"i": "vim::Right",
 			"j": "vim::MoveToNextMatch",
 			"k": "vim::NextWordEnd",
-			"l": ["vim::PushOperator", { "Object": { "around": false } }]
+			"l": ["vim::PushObject", { "around": false }]
 		}
 	},
 	{
