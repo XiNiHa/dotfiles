@@ -28,7 +28,14 @@
 	"hard_tabs": true,
 	"tab_size": 2,
 	"features": {
-		"inline_completion_provider": "supermaven"
+		"edit_prediction_provider": "zed"
+	},
+	"assistant": {
+		"default_model": {
+			"provider": "zed.dev",
+			"model": "claude-3-5-sonnet-latest"
+		},
+		"version": "2"
 	},
 	"inlay_hints": {
 		"enabled": true
@@ -100,10 +107,10 @@
 	},
 	"languages": {
 		"Plain Text": {
-			"show_inline_completions": false
+			"show_edit_predictions": false
 		},
 		"Markdown": {
-			"show_inline_completions": false
+			"show_edit_predictions": false
 		},
 		"Rust": {
 			"hard_tabs": false,
