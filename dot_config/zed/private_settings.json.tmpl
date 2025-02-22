@@ -93,7 +93,11 @@
 		},
 		"rust-analyzer": {
 			"binary": {
+				{{- if eq .chezmoi.os "darwin" }}
 				"path": "/opt/homebrew/bin/ra-multiplex"
+				{{- else }}
+				"path": "/home/xiniha/.cargo/bin/ra-multiplex"
+				{{- end }}
 			},
 			"initialization_options": {
 				"checkOnSave": {
