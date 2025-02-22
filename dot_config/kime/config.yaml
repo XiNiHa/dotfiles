@@ -20,6 +20,12 @@ engine:
         - Hangul
         - Latin
       result: Consume
+    Hangul:
+      behavior: !Toggle
+
+        - Hangul
+        - Latin
+      result: Consume
     C-S-Space:
       behavior: !Mode Emoji
       result: ConsumeIfProcessed
