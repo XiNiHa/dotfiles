@@ -200,15 +200,6 @@ $env.config = {
 # Setup starship
 use ~/.cache/starship/init.nu
 
-{{ if eq .chezmoi.os "darwin" }}
-$env.ASDF_NU_DIR = "/opt/homebrew/opt/asdf/libexec"
-source /opt/homebrew/opt/asdf/libexec/asdf.nu
-{{ else }}
-$env.ASDF_NU_DIR = "/opt/asdf-vm"
-source /opt/asdf-vm/asdf.nu
-{{ end }}
-
 alias cat = bat
-alias arst = asdf
 
 source ~/.zoxide.nu
