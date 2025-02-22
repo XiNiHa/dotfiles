@@ -22,7 +22,6 @@ engine:
       result: Consume
     Hangul:
       behavior: !Toggle
-
         - Hangul
         - Latin
       result: Consume
