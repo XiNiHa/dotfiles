@@ -21,14 +21,14 @@
 		"context": "ProjectPanel && not_editing",
 		"bindings": {
 			"n": "menu::SelectNext",
-			"e": "menu::SelectPrev"
+			"e": "menu::SelectPrevious"
 		}
 	},
 	{
 		"context": "OutlinePanel",
 		"bindings": {
 			"n": "menu::SelectNext",
-			"e": "menu::SelectPrev"
+			"e": "menu::SelectPrevious"
 		}
 	}
 ]

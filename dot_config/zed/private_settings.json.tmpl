@@ -1,12 +1,12 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
 {
+	"edit_predictions": {
+		"mode": "subtle",
+		"copilot": {
+			"proxy": null,
+			"proxy_no_verify": null
+		},
+		"enabled_in_text_threads": false
+	},
 	"theme": {
 		"mode": "dark",
 		"light": "One Light",
@@ -30,12 +30,16 @@
 	"features": {
 		"edit_prediction_provider": "zed"
 	},
-	"assistant": {
+	"agent": {
+		"default_profile": "write",
+		"inline_assistant_model": {
+			"provider": "zed.dev",
+			"model": "claude-opus-4-1-thinking"
+		},
 		"default_model": {
 			"provider": "zed.dev",
-			"model": "claude-3-5-sonnet-latest"
-		},
-		"version": "2"
+			"model": "claude-opus-4-1-thinking"
+		}
 	},
 	"inlay_hints": {
 		"enabled": true
@@ -48,7 +52,13 @@
 			"program": "nu"
 		},
 		"font_family": "Hack Nerd Font Mono",
-		"font_size": 14
+		"font_size": 14,
+		"detect_venv": {
+			"on": {
+				"directories": [".venv", "venv"],
+				"activate_script": "nushell"
+			}
+		}
 	},
 	"lsp": {
 		"vtsls": {
@@ -82,7 +92,10 @@
 					}
 				},
 				"vtsls": {
-					"autoUseWorkspaceTsdk": true
+					"autoUseWorkspaceTsdk": true,
+					"experimental": {
+						"maxInlayHintLength": 20
+					}
 				}
 			}
 		},
@@ -92,13 +105,6 @@
 			}
 		},
 		"rust-analyzer": {
-			"binary": {
-				{{- if eq .chezmoi.os "darwin" }}
-				"path": "/opt/homebrew/bin/ra-multiplex"
-				{{- else }}
-				"path": "/home/xiniha/.cargo/bin/ra-multiplex"
-				{{- end }}
-			},
 			"initialization_options": {
 				"checkOnSave": {
 					"command": "clippy"
@@ -110,29 +116,12 @@
 		}
 	},
 	"languages": {
-		"Plain Text": {
-			"show_edit_predictions": false
-		},
-		"Markdown": {
-			"show_edit_predictions": false
+		"YAML": {
+			"hard_tabs": false
 		},
 		"Rust": {
 			"hard_tabs": false,
 			"tab_size": 4
-		},
-		"TypeScript": {
-			"formatter": {
-				"language_server": {
-					"name": "biome"
-				}
-			}
-		},
-		"TSX": {
-			"formatter": {
-				"language_server": {
-					"name": "biome"
-				}
-			}
 		}
 	}
 }
