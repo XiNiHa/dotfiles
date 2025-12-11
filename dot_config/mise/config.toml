@@ -1,0 +1,10 @@
+[tools]
+deno = "latest"
+node = "lts"
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@google/gemini-cli" = "latest"
+"npm:node-gyp" = "latest"
+"npm:tree-sitter-cli" = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
