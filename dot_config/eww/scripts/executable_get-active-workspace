@@ -3,7 +3,7 @@
 (
   hyprctl monitors -j
   | from json
-  | filter {|x| $x.focused}
+  | where {|x| $x.focused}
   | first
   | get activeWorkspace
   | get id
@@ -13,11 +13,9 @@
 def print_workspace [] {
   each {|s| (
     $s | lines | each {|l| (
-      $l
-      | parse --regex '^workspace>>(?P<workspace>\d+)$'
-      | first
-      | get workspace
-      | if $in != null { print $in }
+    	$l
+      | parse --regex '^workspace>>(?P<workspace>\d+)'
+      | if ($in | length) != 0 { print $in.0.workspace }
     )}
   )} | ignore
 }
