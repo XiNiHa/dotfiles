@@ -120,14 +120,34 @@ misc {
     force_default_wallpaper = 0
 }
 
-windowrulev2 = idleinhibit fullscreen,class:.*
-windowrulev2 = idleinhibit focus,title:.* - YouTube — Mozilla Firefox$
+windowrule {
+    name = idleinhibit-fullscreen
+    match:fullscreen = true
 
-windowrulev2 = opacity 0, title:^KakaoTalk.*Wnd$
-windowrulev2 = minsize 0 0, title:^KakaoTalk.*Wnd$
-windowrulev2 = maxsize 0 0, title:^KakaoTalk.*Wnd$
+    idle_inhibit = always
+}
+windowrule {
+    name = idleinhibit-youtube
+    match:title = .* - YouTube — Mozilla Firefox$
 
-windowrulev2 = tile, class:^dev\.warp\.Warp$
+    idle_inhibit = focus
+}
+
+windowrule {
+    name = kakaotalk
+    match:title = ^KakaoTalk.*Wnd$
+
+    opacity = 0
+    min_size = 0 0
+    max_size = 0 0
+}
+
+windowrule {
+    name = warp
+    match:class = ^dev\.warp\.Warp$
+
+    tile = on
+}
 
 $mainMod = SUPER
 
