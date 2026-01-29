@@ -23,6 +23,7 @@
       :visible {battery_percentage != ""}
       :onchange "")
     time
+    (button :onclick "systemctl suspend" "")
     (button :onclick "systemctl poweroff" "󰐥")
   ))
 
