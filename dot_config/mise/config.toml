@@ -3,7 +3,9 @@ deno = "latest"
 node = "lts"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@google/gemini-cli" = "latest"
+"npm:@openai/codex" = "latest"
 "npm:node-gyp" = "latest"
+"npm:opencode-ai" = "latest"
 "npm:tree-sitter-cli" = "latest"
 
 [settings]
