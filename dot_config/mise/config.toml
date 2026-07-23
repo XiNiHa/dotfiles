@@ -1,7 +1,8 @@
 [tools]
+aube = "latest"
 deno = "latest"
 node = "lts"
-"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@anthropic-ai/claude-code" = { version = "latest", allow_builds = ["@anthropic-ai/claude-code"] }
 "npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
 "npm:node-gyp" = "latest"
