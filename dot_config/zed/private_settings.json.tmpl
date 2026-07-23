@@ -1,22 +1,44 @@
 {
+	"cli_default_open_behavior": "new_window",
+	"project_panel": {
+		"dock": "right",
+	},
+	"outline_panel": {
+		"dock": "right",
+	},
+	"collaboration_panel": {
+		"dock": "right",
+	},
+	"git_panel": {
+		"group_by": "staging",
+		"dock": "right",
+	},
 	"agent_servers": {
+		"gemini": {
+			"type": "registry",
+		},
+		"claude-acp": {
+			"type": "registry",
+		},
+		"codex-acp": {
+			"type": "registry",
+		},
 		"opencode": {
-			"type": "registry"
-		}
+			"type": "registry",
+		},
 	},
 	"edit_predictions": {
 		"provider": "zed",
 		"mode": "subtle",
 		"copilot": {
 			"proxy": null,
-			"proxy_no_verify": null
+			"proxy_no_verify": null,
 		},
-		"enabled_in_text_threads": false
 	},
 	"theme": {
 		"mode": "dark",
 		"light": "One Light",
-		"dark": "One Light"
+		"dark": "One Light",
 	},
 	"vim_mode": true,
 	"cursor_blink": false,
@@ -26,7 +48,7 @@
 	"buffer_font_family": "Hack Nerd Font Mono",
 	"buffer_font_features": {
 		"liga": false,
-		"calt": false
+		"calt": false,
 	},
 	"relative_line_numbers": "enabled",
 	"format_on_save": "off",
@@ -34,26 +56,27 @@
 	"hard_tabs": true,
 	"tab_size": 2,
 	"agent": {
-		"model_parameters": []
+		"dock": "left",
+		"model_parameters": [],
 	},
 	"inlay_hints": {
-		"enabled": true
+		"enabled": true,
 	},
 	"tabs": {
-		"git_status": true
+		"git_status": true,
 	},
 	"terminal": {
 		"shell": {
-			"program": "nu"
+			"program": "nu",
 		},
 		"font_family": "Hack Nerd Font Mono",
 		"font_size": 14,
 		"detect_venv": {
 			"on": {
 				"directories": [".venv", "venv"],
-				"activate_script": "nushell"
-			}
-		}
+				"activate_script": "nushell",
+			},
+		},
 	},
 	"lsp": {
 		"vtsls": {
@@ -62,61 +85,65 @@
 					"inlayHints": {
 						"parameterNames": {
 							"enabled": "all",
-							"suppressWhenArgumentMatchesName": true
+							"suppressWhenArgumentMatchesName": true,
 						},
 						"variableTypes": {
-							"enabled": false
+							"enabled": false,
 						},
 						"enumMemberValues": {
-							"enabled": false
-						}
-					}
+							"enabled": false,
+						},
+					},
 				},
 				"javascript": {
 					"inlayHints": {
 						"parameterNames": {
 							"enabled": "all",
-							"suppressWhenArgumentMatchesName": true
+							"suppressWhenArgumentMatchesName": true,
 						},
 						"variableTypes": {
-							"enabled": false
+							"enabled": false,
 						},
 						"enumMemberValues": {
-							"enabled": false
-						}
-					}
+							"enabled": false,
+						},
+					},
 				},
 				"vtsls": {
 					"autoUseWorkspaceTsdk": true,
 					"experimental": {
-						"maxInlayHintLength": 20
-					}
-				}
-			}
+						"maxInlayHintLength": 20,
+					},
+				},
+			},
 		},
 		"biome": {
 			"settings": {
-				"require_config_file": true
-			}
+				"require_config_file": true,
+			},
 		},
 		"rust-analyzer": {
 			"initialization_options": {
-				"checkOnSave": {
-					"command": "clippy"
+				"checkOnSave": true,
+				"check": {
+					"command": "clippy",
 				},
 				"cargo": {
-					"features": "all"
-				}
-			}
-		}
+					"features": "all",
+				},
+			},
+		},
 	},
 	"languages": {
 		"YAML": {
-			"hard_tabs": false
+			"hard_tabs": false,
 		},
 		"Rust": {
 			"hard_tabs": false,
-			"tab_size": 4
-		}
-	}
+			"tab_size": 4,
+		},
+		"Markdown": {
+			"soft_wrap": "editor_width",
+		},
+	},
 }
