@@ -8,6 +8,7 @@ node = "lts"
 "npm:node-gyp" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:tree-sitter-cli" = "latest"
+pnpm = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
