@@ -1,12 +1,9 @@
 [tools]
 aube = "latest"
-deno = "latest"
 node = "lts"
 "npm:@anthropic-ai/claude-code" = { version = "latest", allow_builds = ["@anthropic-ai/claude-code"] }
-"npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
 "npm:node-gyp" = "latest"
-"npm:opencode-ai" = "latest"
 "npm:tree-sitter-cli" = "latest"
 pnpm = "latest"
 
