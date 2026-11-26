@@ -1,5 +1,6 @@
 [tools]
 aube = "latest"
+java = "25"
 node = "lts"
 "npm:@anthropic-ai/claude-code" = { version = "latest", allow_builds = ["@anthropic-ai/claude-code"] }
 "npm:@openai/codex" = "latest"
