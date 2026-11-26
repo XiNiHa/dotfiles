@@ -25,6 +25,11 @@ engine:
         - Hangul
         - Latin
       result: Consume
+    AltR:
+      behavior: !Toggle
+        - Hangul
+        - Latin
+      result: Consume
     C-S-Space:
       behavior: !Mode Emoji
       result: ConsumeIfProcessed
