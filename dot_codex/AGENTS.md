@@ -1,8 +1,10 @@
 # Generic Agent Instructions
 
 - **Do not commit the work** unless explicitly requested.
+- **Fixes to unpushed commits.** When fixing changes in an unpushed commit, fold the fix into that commit.
 - **No unnecessary comments** for code that is already self-explanatory.
 - **Code is the SSOT**, docs are only supplementary for a brief overview. Minimize docs that could easily drift.
+- **age files.** Encrypt with `~/repos/ct-snippets/encrypt-company.zsh`. Decrypt with `age` using `~/age-se-key.txt` as the identity file.
 
 ## When using T3 Code
 
